@@ -3,14 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchVideos() {
-    // Calculate start timestamp (current time)
-    const startTime = Date.now() / 1000; // Convert milliseconds to seconds
-
-    // Calculate stop timestamp (24 hours ago)
-    const stopTime = startTime - (24 * 60 * 60); // Subtract 24 hours in seconds
+    let currentDate = new Date();
+    const currentISODate = currentDate.toISOString();
+    const twentyFourHoursAgoDate = new Date(currentDate.getTime() - (7 * 24 * 60 * 60 * 1000));
+    const twentyFourHoursAgoISODate = twentyFourHoursAgoDate.toISOString();
 
     // Construct the API URL with start and stop timestamps
-    const apiUrl = `https://localhost:5000/v1.0/clip?start=${startTime}&end=${stopTime}`;
+    const apiUrl = `http://128.199.11.249:5000/v1.0/clip?start=${currentISODate}&end=${twentyFourHoursAgoISODate}`;
 
     fetch(apiUrl)
         .then(response => response.json())
