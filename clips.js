@@ -13,16 +13,16 @@ function fetchVideos() {
 
     fetch(apiUrl)
         .then(response => response.json())
-        .then(data => {
-            console.log(data); // Add this line to log the data structure
-            renderVideos(data);
-        })
+        .then(data => renderVideos(data))
         .catch(error => console.error("Error fetching videos:", error));
 
 }
 
 function renderVideos(videoLinks) {
     const videoContainer = document.getElementById("videoContainer");
+
+    console.log("Type of videoLinks:", typeof videoLinks);
+    console.log("Contents of videoLinks:", videoLinks);
 
     videoLinks.forEach(link => {
         // Append &parent=janovak.github.io to each link
