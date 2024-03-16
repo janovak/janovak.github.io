@@ -9,7 +9,7 @@ function fetchVideos() {
     const twentyFourHoursAgoISODate = twentyFourHoursAgoDate.toISOString();
 
     // Construct the API URL with start and stop timestamps
-    const apiUrl = `http://128.199.11.249:5000/v1.0/clip?start=${currentISODate}&end=${twentyFourHoursAgoISODate}`;
+    const apiUrl = `https://128.199.11.249:443/v1.0/clip?start=${currentISODate}&end=${twentyFourHoursAgoISODate}`;
 
     fetch(apiUrl)
         .then(response => response.json())
