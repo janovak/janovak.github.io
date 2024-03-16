@@ -13,8 +13,12 @@ function fetchVideos() {
 
     fetch(apiUrl)
         .then(response => response.json())
-        .then(data => renderVideos(data))
+        .then(data => {
+            console.log(data); // Add this line to log the data structure
+            renderVideos(data);
+        })
         .catch(error => console.error("Error fetching videos:", error));
+
 }
 
 function renderVideos(videoLinks) {
