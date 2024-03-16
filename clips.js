@@ -25,12 +25,13 @@ function renderVideos(videoLinks) {
         // Append &parent=janovak.github.io to each link
         const modifiedLink = link + "&parent=janovak.github.io";
 
-        // Create video element
-        const videoElement = document.createElement("video");
-        videoElement.src = modifiedLink;
-        videoElement.controls = true;
+        // Create iframe element
+        const iframeElement = document.createElement("iframe");
+        iframeElement.src = modifiedLink;
+        iframeElement.frameborder = "0";
+        iframeElement.allowfullscreen = true;
 
-        // Append video element to container
-        videoContainer.appendChild(videoElement);
+        // Append iframe element to container
+        videoContainer.appendChild(iframeElement);
     });
 }
